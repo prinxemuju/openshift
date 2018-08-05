@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $yx = opendir('myToken');
 while($isi=readdir($yx))
 if($isi != '.' && $isi != '..'){ 
@@ -14,14 +14,12 @@ $nama = ''.$stat[data][$i-1][from][name].'';
 $emoticon=$emo[rand(0,count($emo)-1)];
 
 $text = array(
-' Xoxo '.$nama.'',
-'Congratulations '.$nama.'',
-'Semoga Sukses '.$nama.'',
+'🇵🇰 Azaadi Mubarak Ho '.$nama.' ;)',
 );
 
 $comments = $text[rand(0,count($text)-1)];
 
-$site = 'Personal Bot�';
+$site = '<3 Admin - Mujahid Khan <3';
 
 $return = '
 '.$comments.' 
@@ -31,19 +29,15 @@ $react = array(
 'LIKE',
 'WOW',
 'LOVE',
-'SAD',
-'HAHA',
 );
 
 $reaction = $react[rand(0,count($react)-1)];
 
-$stickers = array(
-'919273981556651',
-);
+
 $sticker=$stickers[rand(0,count($stickers)-1)];
 
-auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/reactions?type=LOVE&method=POST&access_token='.$token.'');
-auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($return).'&attachment_id='.$sticker.'&access_token='.$token.'&method=POST');
+auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/reactions?type='.$reaction.'&method=POST&access_token='.$token.'');
+auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($return).'&attachment_url=https://graph.facebook.com/'.$stat[data][$i-1][from][id].'/picture?type=large&redirect=true&width=200&height=200&access_token='.$token.'&method=POST');
 }
 }
 echo '<center>Refresh Done</center>';
