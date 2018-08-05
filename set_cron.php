@@ -14,7 +14,7 @@ $nama = ''.$stat[data][$i-1][from][name].'';
 $emoticon=$emo[rand(0,count($emo)-1)];
 
 $text = array(
-'🇵🇰 Azaadi Mubarak Ho '.$nama.' ;)',
+'🇵🇰 Azaadi Mubarak Ho '.$nama.' 😍',
 );
 
 $comments = $text[rand(0,count($text)-1)];
