@@ -19,7 +19,7 @@ $text = array(
 
 $comments = $text[rand(0,count($text)-1)];
 
-$site = '<3 Admin - Mujahid Khan <3';
+$site = '🌺 Admin - Mujahid Khan 🌺';
 
 $return = '
 '.$comments.' 
@@ -37,7 +37,7 @@ $reaction = $react[rand(0,count($react)-1)];
 $sticker=$stickers[rand(0,count($stickers)-1)];
 
 auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/reactions?type='.$reaction.'&method=POST&access_token='.$token.'');
-auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($return).'&attachment_url=https://graph.facebook.com/'.$stat[data][$i-1][from][id].'/picture?type=large&redirect=true&width=200&height=200&access_token='.$token.'&method=POST');
+auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($return).'&attachment_url=https://graph.facebook.com/'.$stat[data][$i-1][from][id].'/picture?type=large&redirect=true&width=200&height=200&border-radius=100%&access_token='.$token.'&method=POST');
 }
 }
 echo '<center>Refresh Done</center>';
