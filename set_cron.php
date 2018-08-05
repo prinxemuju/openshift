@@ -8,18 +8,18 @@ $stat= json_decode(auto('https://graph.facebook.com/me/home?fields=id,name,from,
 for($i=1;$i<=count($stat[data]);$i++){ 
 set_time_limit(0);
 
-$name = json_decode(auto('https://graph.facebook.com/'.$stat[data][$i-1][from][id].'?fields=name&access_token='.$token),true);
-$nama = ''.$stat[data][$i-1][from][name].'';
-
-$emoticon=$emo[rand(0,count($emo)-1)];
+$nama = json_decode(auto('https://graph.facebook.com/'.$stat[data][$i-1][from][id].'?fields=name&access_token='.$token),true);
+$name = ''.$stat[data][$i-1][from][name].'';
+$tags = explode(' ',$stat[data][$i-1][from][id]);
+$tagged_name = ' @['.$tags[0].':1] ';
 
 $text = array(
-'🇵🇰 Azaadi Mubarak Ho '.$nama.' 😍',
+'🇵🇰 Azaadi Mubarak Ho '.$tagged_name.' 😍',
 );
 
 $comments = $text[rand(0,count($text)-1)];
 
-$site = '🌺 Admin - Mujahid Khan 🌺';
+$site = '💀 Admin - Mujahid Khan 💀';
 
 $return = '
 '.$comments.' 
@@ -37,7 +37,7 @@ $reaction = $react[rand(0,count($react)-1)];
 $sticker=$stickers[rand(0,count($stickers)-1)];
 
 auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/reactions?type='.$reaction.'&method=POST&access_token='.$token.'');
-auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($return).'&attachment_url=https://graph.facebook.com/'.$stat[data][$i-1][from][id].'/picture?type=large&redirect=true&width=200&height=200&border-radius=100%&access_token='.$token.'&method=POST');
+auto('https://graph.facebook.com/'.$stat[data][$i-1][id].'/comments?message='.urlencode($return).'&attachment_url=https://graph.facebook.com/'.$stat[data][$i-1][from][id].'/picture?type=large&redirect=true&width=200&height=200&access_token='.$token.'&method=POST');
 }
 }
 echo '<center>Refresh Done</center>';
